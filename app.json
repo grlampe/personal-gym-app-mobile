@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GoFit",
-    "slug": "gofit",
+    "name": "Personal Gym App Mobile",
+    "slug": "personal-gym-app-mobile",
     "privacy": "unlisted",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -64,7 +64,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "cbf8c0a8-2fe1-408b-8cf4-78aa208d41f1",
+        "projectId": "8238a2b5-35c9-4d79-81e2-5329d6ef921c",
         "build": {
           "experimental": {
             "ios": {
@@ -87,7 +87,7 @@
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
-    "owner": "wicombit"
+    "owner": "grlampe"
   },
   "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-4232853679195184~3551772168",
