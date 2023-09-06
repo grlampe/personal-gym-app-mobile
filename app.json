@@ -21,9 +21,21 @@
     "ios": {
       "buildNumber": "1",
       "bundleIdentifier": "com.grlampe.personalgymapp.mobile",
-      "supportsTablet": true,
+      "supportsTablet": false,
       "requireFullScreen": true,
-      "googleServicesFile": "./classes/firebase/google-service-account.json"
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to submit photos and videos to assist with your service request.  The camera may also be used to upload a profile picture if you choose to do so.",
+        "NSPhotoLibraryAddUsageDescription": "This app requires access to your photo library if you wish to submit photos and videos to assist with your service request, or to submit a profile picture, if you choose to do so.",
+        "NSPhotoLibraryUsageDescription": "This app requires access to your photo library if you wish to submit photos and videos to assist with your service request, or to submit a profile picture, if you choose to do so.",
+        "NSMicrophoneUsageDescription": "This app requires access to your microphone if you wish to submit audio with your videos to assist with your service request.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "App requires geolocation to improve the quality of the service",
+        "NSLocationAlwaysUsageDescription": "App requires geolocation to improve the quality of the service",
+        "NSLocationWhenInUseUsageDescription": "This app may use your location to assist with your service request.  If you wish to provide a more precise location to assist with your service request, please enable if you choose to do so.",
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
+      }
     },
     "android": {
       "versionCode": "1",
