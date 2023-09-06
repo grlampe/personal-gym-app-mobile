@@ -36,69 +36,188 @@ import ColorsApp from '../config/ColorsApp';
 
 const Stack = createStackNavigator();
 
-export default function StackNavigation(props){
-
+export default function StackNavigation(props) {
   const contextState = React.useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
-  const {theme} = usePreferences();
+  const { theme } = usePreferences();
 
-	const {navigation} = props;
-	
-	const navigatorOptions = {
-		headerStyle: {
-			shadowColor: 'transparent',
-			elevation: 0,
-			shadowOpacity: 0,
-			backgroundColor: ColorsApp.PRIMARY,
-		},
-		headerTitleAlign: 'center',
-		headerTintColor:'#fff'
-	}
+  const { navigation } = props;
 
-// ******************************** Buttons
+  const navigatorOptions = {
+    headerStyle: {
+      shadowColor: 'transparent',
+      elevation: 0,
+      shadowOpacity: 0,
+      backgroundColor: ColorsApp.PRIMARY,
+    },
+    headerTitleAlign: 'center',
+    headerTintColor: '#fff',
+  };
 
-const buttonBack = () => {
-	return (
-		<IconButton icon={I18nManager.isRTL ? "arrow-right" : "arrow-left"} iconColor="white" style={{marginLeft:15}} size={24} onPress={() => navigation.goBack()}/>
-		)
-};
+  // ******************************** Buttons
 
-const buttonMenu = () => {
-	return (
-		<IconButton icon="menu" size={24} style={{marginLeft:15}} iconColor="white" onPress={() => navigation.openDrawer()}/>
-		)
-};
+  const buttonBack = () => {
+    return (
+      <IconButton
+        icon={I18nManager.isRTL ? 'arrow-right' : 'arrow-left'}
+        iconColor="white"
+        style={{ marginLeft: 15 }}
+        size={24}
+        onPress={() => navigation.goBack()}
+      />
+    );
+  };
 
-return (
-	<Stack.Navigator screenOptions={navigatorOptions}>
-	<Stack.Screen name="home" component={Home} options={{title: Strings.ST1, headerLeft: () => buttonMenu()}} />
-	<Stack.Screen name="profile" component={Profile} options={{title: Strings.ST6, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="settings" component={Settings} options={{title: Strings.ST108, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="about" component={About} options={{title: Strings.ST110, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="terms" component={Terms} options={{title: Strings.ST8, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="workouts" component={Workouts} options={{title: Strings.ST5, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="exercises" component={Exercises} options={{title: Strings.ST21, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="equipments" component={Equipments} options={{title: Strings.ST56, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="diets" component={Diets} options={{title: Strings.ST27, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="goals" component={Goals} options={{title: Strings.ST52, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="levels" component={Levels} options={{title: Strings.ST53, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="categories" component={Categories} options={{title: Strings.ST28, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="store" component={Store} options={{title: Strings.ST45, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="products" component={Products} options={{title: Strings.ST45, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="blog" component={Blog} options={{title: Strings.ST29, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="posts" component={Posts} options={{title: Strings.ST29, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singlegoal" component={SingleGoal} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singlelevel" component={SingleLevel} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singleequipment" component={SingleEquipment} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singlemuscle" component={SingleMuscle} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singlecategory" component={SingleCategory} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singletype" component={SingleType} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="singletag" component={SingleTag} options={{title: null, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="searchworkout" component={SearchWorkout} options={{title: Strings.ST3, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="favorites" component={Favorites} options={{title: Strings.ST4, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="customworkouts" component={CustomWorkouts} options={{title: Strings.ST50, headerLeft: () => buttonBack()}} />
-	<Stack.Screen name="customdiets" component={CustomDiets} options={{title: Strings.ST51, headerLeft: () => buttonBack()}} />
-	</Stack.Navigator>
-	)
+  const buttonMenu = () => {
+    return (
+      <IconButton
+        icon="menu"
+        size={24}
+        style={{ marginLeft: 15 }}
+        iconColor="white"
+        onPress={() => navigation.openDrawer()}
+      />
+    );
+  };
+
+  return (
+    <Stack.Navigator screenOptions={navigatorOptions}>
+      <Stack.Screen
+        name="home"
+        component={Home}
+        options={{ title: Strings.ST1, headerLeft: () => buttonMenu() }}
+      />
+      <Stack.Screen
+        name="profile"
+        component={Profile}
+        options={{ title: Strings.ST6, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="settings"
+        component={Settings}
+        options={{ title: Strings.ST108, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="about"
+        component={About}
+        options={{ title: Strings.ST110, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="terms"
+        component={Terms}
+        options={{ title: Strings.ST8, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="workouts"
+        component={Workouts}
+        options={{ title: Strings.ST5, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="exercises"
+        component={Exercises}
+        options={{ title: Strings.ST21, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="equipments"
+        component={Equipments}
+        options={{ title: Strings.ST56, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="diets"
+        component={Diets}
+        options={{ title: Strings.ST27, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="goals"
+        component={Goals}
+        options={{ title: Strings.ST52, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="levels"
+        component={Levels}
+        options={{ title: Strings.ST53, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="categories"
+        component={Categories}
+        options={{ title: Strings.ST28, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="store"
+        component={Store}
+        options={{ title: Strings.ST45, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="products"
+        component={Products}
+        options={{ title: Strings.ST45, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="blog"
+        component={Blog}
+        options={{ title: Strings.ST29, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="posts"
+        component={Posts}
+        options={{ title: Strings.ST29, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singlegoal"
+        component={SingleGoal}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singlelevel"
+        component={SingleLevel}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singleequipment"
+        component={SingleEquipment}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singlemuscle"
+        component={SingleMuscle}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singlecategory"
+        component={SingleCategory}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singletype"
+        component={SingleType}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="singletag"
+        component={SingleTag}
+        options={{ title: null, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="searchworkout"
+        component={SearchWorkout}
+        options={{ title: Strings.ST3, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="favorites"
+        component={Favorites}
+        options={{ title: Strings.ST4, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="customworkouts"
+        component={CustomWorkouts}
+        options={{ title: Strings.ST50, headerLeft: () => buttonBack() }}
+      />
+      <Stack.Screen
+        name="customdiets"
+        component={CustomDiets}
+        options={{ title: Strings.ST51, headerLeft: () => buttonBack() }}
+      />
+    </Stack.Navigator>
+  );
 }

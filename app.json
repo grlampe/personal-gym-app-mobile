@@ -22,7 +22,8 @@
       "buildNumber": "1",
       "bundleIdentifier": "com.wicombit.gofit.expo",
       "supportsTablet": true,
-      "requireFullScreen": true
+      "requireFullScreen": true,
+      "googleServicesFile": "./classes/firebase/google-service-account.json"
     },
     "android": {
       "versionCode": "1",
@@ -31,6 +32,7 @@
         "backgroundColor": "#f39c1f"
       },
       "package": "com.wicombit.gofit.expo",
+      "googleServicesFile": "./classes/firebase/google-service-account.json",
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.READ_INTERNAL_STORAGE",
