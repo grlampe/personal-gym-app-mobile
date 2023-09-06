@@ -13,7 +13,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/62ed3a93-0871-4a94-b0dc-299feabcd2f5"
+      "url": "https://u.expo.dev/173a9b48-d13d-41f9-a0df-b3b01b35c4aa"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -38,7 +38,7 @@
       }
     },
     "android": {
-      "versionCode": "1",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#f39c1f"
@@ -55,6 +55,13 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      [
+        "./plugins/withAndroidMainActivityAttributes",
+        {
+          "android:showWhenLocked": true,
+          "android:turnScreenOn": true
+        }
+      ],
       [
         "expo-build-properties",
         {
