@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "personal-gym-app-mobile",
+  "private_key_id": "42c20a10c75620aac05eade1d4e07bfc53af93b7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4/FW9GalvNsk4\nZRHO7KOcnO/2Sf5mTFJ7+y8HYTohNLs3rblwCpvyNXPTMUxpWV9acdTH59EfYK5T\n1xO3dB/dJC8CSifynsQJFkFSL/4GWDOHADmQv2CTp5LN5DpNHXW3bb7jUx1cq5K9\nbnEdbms8w3KrqBTKUt32M+zj3H8klxs0ukdv6SA5qC9T3nH4oNFhdTLK5OymMe/L\nMzGdaF8h94qsdYK+3X9QWP0ahKfy5oxzjNvA8/FnEgXBLuTsN/3q3/yiizirHmPD\n3IbRy7CKqNu+D+HKN1EAsOtfecIsfEU1ofOiskXLtDSb62mS/qV+IJFO3/mvs+6y\n/mE+M5pVAgMBAAECggEAG1rakETT32mp8ThQ8oPf4Jr8iTPWoOi3Ed/KdpGUIlua\ni9iZds4QKDhrUQHAm5uRvt2Hv6qyLAJaBR/lqdf266Fxf38uenGr6kQWPhccE3LG\nO+J2oMcMJbQ+wJ+irMtRyww5kYLgRqyV3dllH3BiqfD6a2lG7xxjTQh6BsARNScP\nm3hFkbHVRQaTGDN+smTGI9KA0h4F4/oAPO7gPv8m3Y1h+wyu+LZscCLCa4u2lSWs\np1LdUBs6o3MmnuBZlOQTFcVI1JI5JYFXtkmZh1UUoX1N/xTpi12n6giCjkTUb3KF\nm5Fcbdkf1yAPY5i5l3S0+IvOLbn1/ZFCC4P4YvOEiQKBgQD5p3fJWY6cRUvfGtev\ndQyGp3EqEMk4rgXtF0knIBnI0vmv/Q6jbA6FSRxyBnBwY4LcXw47IPHxdv52KSJU\nH1qZRfhW5qxC57DLdJ5+oN/GrlDrRkjNsogixP73ignU17C5+o6vEi3mwt1z01Rh\nYHtqPgQVjsqXus7qWnzYcYteewKBgQC9sA+Ny+nNVNDj1DE2RN2W1wU7chhkXwTA\nbaw7raC1Epl8/L7+UNoleb3pNvYZopztJML5O1DWtj/9W5pMXou3rjX/QCGWRS9d\nCxLbRyovLVowfQ3obezV34wTLU+X/BWsNl2HwDem0ype2DCLVgHI8cuvpHeMsQbo\nyGssBaD5bwKBgQCkKhpbvddILU0p5UXFK6vT89E3PxiCe/SLpk9FOheadhkYP8hb\ncBfQT3Y0CMXxMY6AiMUb3psaFAxZ+MyJEqEJvvgBdOf7is03zHTYgcMEq+WsAGip\nUmewrWeXsR6r5jVg5kDjIIosfyEOI/4NllsxTpxy7JWN1ppvgpcr4OYrdwKBgGej\nbSwdEHYWdDc2dVjgUW2bt4keMoOMgs0cXvEQUXD9Y40tjrDmvfmhxYhJdjbVaQYM\ngtaneOiHFPk5dllpgs7tySTYBkHTNSiR51CVVlAGaHN7sAChJrhH9oF3zTgODE1W\nOs3z0LQ+RbUiS4ulhz4iFha2NndRNaQz9JJN1QDTAoGBAOWzqwPNkabaDGBze2S1\nccyQUgHnKOBFS7QZ/LcKPoiPskR/zSkjV5lDEi9wl8WSmIPXUymAM2mcDUVb3T/6\nu230Ma26GV9zkup/iGrnF+NIU5cjCf/aWMmtMBndP5d3PxHME1mM/+DF8l4Takq/\nEOtrDh80Du7MgaLTOI00UOuR\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-2muz1@personal-gym-app-mobile.iam.gserviceaccount.com",
+  "client_id": "103989618921337729391",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-2muz1%40personal-gym-app-mobile.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

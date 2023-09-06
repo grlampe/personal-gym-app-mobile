@@ -20,7 +20,7 @@
     ],
     "ios": {
       "buildNumber": "1",
-      "bundleIdentifier": "com.wicombit.gofit.expo",
+      "bundleIdentifier": "com.grlampe.personalgymapp.mobile",
       "supportsTablet": true,
       "requireFullScreen": true,
       "googleServicesFile": "./classes/firebase/google-service-account.json"
@@ -31,7 +31,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#f39c1f"
       },
-      "package": "com.wicombit.gofit.expo",
+      "package": "com.grlampe.personalgymapp.mobile",
       "googleServicesFile": "./classes/firebase/google-service-account.json",
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
