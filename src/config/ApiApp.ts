@@ -15,15 +15,13 @@ api.interceptors.request.use(async config => {
       }
     } else {
       if (config.url !== '/login') {
-        Alert.alert(`Usuário Inválido!. 
-          Verifique o cadastro do usuário que está tentando efetuar esta ação!`);
+        Alert.alert('Usuário Inválido.', 
+          'Verifique o cadastro do usuário que está tentando efetuar esta ação!');
       }
     }
 
     return config;
 });
-
-let authContext;
 
 api.interceptors.response.use(async function (response) {
   return response;
