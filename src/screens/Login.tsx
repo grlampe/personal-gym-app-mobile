@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    View,
-    Alert,
-    TouchableOpacity,
-    Image,
+  SafeAreaView,
+  View,
+  Alert,
+  TouchableOpacity,
+  Image,
 } from 'react-native';
 import { Text, TextInput, Button } from 'react-native-paper';
 import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import usePreferences from '../hooks/usePreferences';
-
-const auth = getAuth();
+import { AuthContext } from '../context/Authenticate';
 
 export default function Login(props) {
+  const { signIn } = React.useContext(AuthContext);
   const contextState = React.useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
   const { theme } = usePreferences();
 
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const onChangeScreen = (screen) => {
@@ -31,26 +30,8 @@ export default function Login(props) {
 
   const login = async () => {
     setLoading(true);
-
-    if ((email, password)) {
-      await signInWithEmailAndPassword(auth, email, password)
-        .then((user) => {
-          //console.log('Signed in as user', user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          if (errorCode === 'auth/wrong-password') {
-            setLoading(false);
-            Alert.alert(Strings.ST113);
-          } else if (errorCode === 'auth/user-not-found') {
-            setLoading(false);
-            Alert.alert(Strings.ST37);
-          } else {
-            setLoading(false);
-            Alert.alert(Strings.ST33);
-          }
-        });
+    if (username && password) {
+      await signIn({ username, password });
     } else {
       setLoading(false);
       Alert.alert(Strings.ST33);
@@ -72,7 +53,7 @@ export default function Login(props) {
       <View style={Styles.AuthContent}>
         <TextInput
           label={Strings.ST19}
-          onChangeText={(text) => setEmail(text.trim())}
+          onChangeText={(text) => setUsername(text.trim())}
           mode="flat"
           autoCapitalize="none"
           style={Styles.AuthInput}
@@ -92,7 +73,7 @@ export default function Login(props) {
         </TouchableOpacity>
         <Button
           mode="contained"
-          onPress={() => login()}
+          onPress={async () => await login()}
           dark={theme === 'dark' ? false : true}
           style={Styles.AuthButton}
           contentStyle={Styles.AuthButtonContent}

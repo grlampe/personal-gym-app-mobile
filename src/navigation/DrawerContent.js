@@ -35,23 +35,23 @@ export default function DrawerContent(props){
 		<View style={{flex: 1}}>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST5}
-		onPress={() => onChangeScreen("workouts")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST5}
+			onPress={() => onChangeScreen("workouts")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST21}
-		onPress={() => onChangeScreen("exercises")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST21}
+			onPress={() => onChangeScreen("exercises")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
@@ -65,53 +65,53 @@ export default function DrawerContent(props){
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST45}
-		onPress={() => onChangeScreen("store")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST45}
+			onPress={() => onChangeScreen("store")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST29}
-		onPress={() => onChangeScreen("blog")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST29}
+			onPress={() => onChangeScreen("blog")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST6}
-		onPress={() => onChangeScreen("profile")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST6}
+			onPress={() => onChangeScreen("profile")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST4}
-		onPress={() => onChangeScreen("favorites")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST4}
+			onPress={() => onChangeScreen("favorites")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		<List.Item
-		titleStyle={Styles.DrawerTitleMenu}
-		style={Styles.DrawerMenuItem}
-		title={Strings.ST108}
-		onPress={() => onChangeScreen("settings")}
-		underlayColor="transparent"
-		rippleColor='transparent'
-		right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
+			titleStyle={Styles.DrawerTitleMenu}
+			style={Styles.DrawerMenuItem}
+			title={Strings.ST108}
+			onPress={() => onChangeScreen("settings")}
+			underlayColor="transparent"
+			rippleColor='transparent'
+			right={props => <Icon {...props} style={Styles.DrawerIconRightMenu} name={rightIcon} />}
 		/>
 
 		</View>

@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect, useMemo } from 'react';
-import './src/config/ConfigFirebase';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { LogBox, StatusBar } from 'react-native';
+import './src/config/ConfigFirebase';
 import Loading from './src/components/AppLoading';
 import LanguageContext from './src/languages/LanguageContext';
 import Preferences from './src/context/Preferences';
@@ -29,6 +28,7 @@ import 'moment/locale/de';
 import 'moment/locale/ru';
 import 'moment/locale/fr';
 import OneSignal from 'react-native-onesignal';
+import { AuthContext, AuthProvider } from './src/context/Authenticate';
 
 OneSignal.setAppId(ConfigApp.ONESIGNAL_APP_ID);
 
@@ -44,10 +44,8 @@ DefaultThemeNav.colors.background = '#fff';
 LogBox.ignoreAllLogs();
 
 const App = () => {
-  const auth = getAuth();
-
+  const { isLogged } = useContext(AuthContext);
   const [theme, setTheme] = useState(ConfigApp.THEMEMODE);
-  const [isLogged, setIsLogged] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [language, setLanguage] = useState(ConfigApp.DEFAULTLANG);
 
@@ -64,25 +62,13 @@ const App = () => {
     [theme],
   );
 
-  const updateValue = (lang) => {
+  const updateValue = (lang: any) => {
     setLanguage(lang);
     AsyncStorage.setItem('language', lang);
   };
 
   useEffect(() => {
-    async function checkUser() {
-      onAuthStateChanged(auth, (user) => {
-        if (user !== null) {
-          setIsLogged(true);
-          setLoaded(true);
-        } else {
-          setIsLogged(false);
-          setLoaded(true);
-        }
-      });
-    }
-
-    checkUser();
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -136,9 +122,7 @@ const App = () => {
               backgroundColor="transparent"
               barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
             />
-            <NavigationContainer
-              theme={theme === 'dark' ? DarkThemeNav : DefaultThemeNav}
-            >
+            <NavigationContainer theme={theme === 'dark' ? DarkThemeNav : DefaultThemeNav}>
               {isLogged ? <DrawerNavigation /> : <GuestNavigation />}
             </NavigationContainer>
           </PaperProvider>
@@ -148,4 +132,8 @@ const App = () => {
   }
 };
 
-export default App;
+export default () => (
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);

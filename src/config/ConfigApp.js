@@ -3,7 +3,7 @@
 const ConfigApp = {
 
     // backend url (with slash at end)
-    URL: "https://wicombit.com/demo/gofit/",
+    URL: "'http://10.0.2.2:3001/",
 
     DEFAULTLANG: "en",
 
