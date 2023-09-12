@@ -4,7 +4,7 @@ import { LogBox, StatusBar } from 'react-native';
 import './src/config/ConfigFirebase';
 import Loading from './src/components/AppLoading';
 import LanguageContext from './src/languages/LanguageContext';
-import Preferences from './src/context/Preferences';
+import Preferences from './src/context/pref.context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Provider as PaperProvider,
@@ -18,7 +18,6 @@ import {
 } from '@react-navigation/native';
 import DrawerNavigation from './src/navigation/DrawerNavigation';
 import GuestNavigation from './src/navigation/GuestNavigation';
-import ColorsApp from './src/config/ColorsApp';
 import ConfigApp from './src/config/ConfigApp';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import moment from 'moment';
@@ -28,7 +27,8 @@ import 'moment/locale/de';
 import 'moment/locale/ru';
 import 'moment/locale/fr';
 import OneSignal from 'react-native-onesignal';
-import { AuthContext, AuthProvider } from './src/context/Authenticate';
+import { AuthContext, AuthProvider } from './src/context/auth.context';
+import ColorsApp from './src/config/ColorsApp';
 
 OneSignal.setAppId(ConfigApp.ONESIGNAL_APP_ID);
 
@@ -43,18 +43,23 @@ DefaultThemeNav.colors.background = '#fff';
 
 LogBox.ignoreAllLogs();
 
-const App = () => {
+interface Preference {
+  toggleTheme: () => void;
+  theme: string;
+}
+
+const App: React.FC = () => {
   const { isLogged } = useContext(AuthContext);
-  const [theme, setTheme] = useState(ConfigApp.THEMEMODE);
-  const [loaded, setLoaded] = useState(false);
-  const [language, setLanguage] = useState(ConfigApp.DEFAULTLANG);
+  const [theme, setTheme] = useState<string>(ConfigApp.THEMEMODE);
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>(ConfigApp.DEFAULTLANG);
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
     AsyncStorage.setItem('themeSetting', theme);
   };
 
-  const preference = useMemo(
+  const preference = useMemo<Preference>(
     () => ({
       toggleTheme,
       theme,
@@ -62,7 +67,7 @@ const App = () => {
     [theme],
   );
 
-  const updateValue = (lang: any) => {
+  const updateValue = (lang: string) => {
     setLanguage(lang);
     AsyncStorage.setItem('language', lang);
   };
@@ -94,10 +99,7 @@ const App = () => {
   useEffect(() => {
     if (
       language === 'es' ||
-      language === 'ar' ||
-      language === 'fr' ||
-      language === 'ru' ||
-      language === 'de'
+      language === 'ar' 
     ) {
       moment.locale(language);
     } else {
@@ -132,8 +134,10 @@ const App = () => {
   }
 };
 
-export default () => (
+const Root: React.FC = () => (
   <AuthProvider>
     <App />
   </AuthProvider>
 );
+
+export default Root;

@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { api } from "../config/ApiApp";
+import { api } from "../services/api.service";
+import { storageCurrentUser, storageTokenName } from "../utils/consts";
 
 export const AuthContext = createContext({} as AuthContextData);
 
@@ -38,25 +39,29 @@ export const AuthProvider = (props: AuthProvider) => {
 
   React.useEffect(() => {
     async function fetchIsLogged() {
-      const storedUser = await AsyncStorage.getItem('storageCurrentUser');
-      const storedToken = await AsyncStorage.getItem('storageTokenName');
+      const storedUser: User = JSON.parse(await AsyncStorage.getItem(storageCurrentUser));
+      const storedToken = await AsyncStorage.getItem(storageTokenName);
       setIsLogged(!!storedUser && !!storedToken)
+
+      if (!currentUser && !!storedUser) {
+        setCurrentUser(storedUser)
+      }
     }
 
     fetchIsLogged();
-}, []);
+}, [currentUser]);
   
   async function signOut() {
     setCurrentUser(null);
-    await AsyncStorage.removeItem('storageCurrentUser');
-    await AsyncStorage.removeItem('storageTokenName');
+    await AsyncStorage.removeItem(storageCurrentUser);
+    await AsyncStorage.removeItem(storageTokenName);
     setIsLogged(false);
   }
 
   async function setUserData(data: LoginData) {
     if (data) {
-      await AsyncStorage.setItem('storageTokenName', data.access_token);
-      await AsyncStorage.setItem('storageCurrentUser', JSON.stringify(data.user));
+      await AsyncStorage.setItem(storageTokenName, data.access_token);
+      await AsyncStorage.setItem(storageCurrentUser, JSON.stringify(data.user));
       setCurrentUser(data.user);
       setIsLogged(true);
     }

@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   SafeAreaView,
   View,
   Alert,
-  TouchableOpacity,
   Image,
 } from 'react-native';
-import { Text, TextInput, Button } from 'react-native-paper';
+import { TextInput, Button } from 'react-native-paper';
 import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import usePreferences from '../hooks/usePreferences';
-import { AuthContext } from '../context/Authenticate';
+import { AuthContext } from '../context/auth.context';
 
-export default function Login(props) {
-  const { signIn } = React.useContext(AuthContext);
-  const contextState = React.useContext(LanguageContext);
+interface Props {
+  navigation: any;
+}
+
+export default function Login(_: Props) {
+  const { signIn } = useContext(AuthContext);
+  const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
   const { theme } = usePreferences();
 
-  const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const onChangeScreen = (screen) => {
-    props.navigation.navigate(screen);
-  };
-
+  const [loading, setLoading] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  
   const login = async () => {
     setLoading(true);
     if (username && password) {
@@ -65,12 +64,6 @@ export default function Login(props) {
           secureTextEntry={true}
           style={Styles.AuthInput}
         />
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={() => onChangeScreen('forgot')}
-        >
-          <Text style={Styles.ForgotPass}>{Strings.ST15}</Text>
-        </TouchableOpacity>
         <Button
           mode="contained"
           onPress={async () => await login()}
@@ -81,18 +74,6 @@ export default function Login(props) {
         >
           {!loading ? Strings.ST17 : Strings.ST31}
         </Button>
-
-        <View style={Styles.AuthBottomContent}>
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => onChangeScreen('register')}
-          >
-            <Text style={Styles.AuthBottomText}>
-              {Strings.ST12}{' '}
-              <Text style={{ fontWeight: 'bold' }}>{Strings.ST35}</Text>
-            </Text>
-          </TouchableOpacity>
-        </View>
       </View>
     </SafeAreaView>
   );
