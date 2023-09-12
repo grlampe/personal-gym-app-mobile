@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { I18nManager } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import { IconButton } from 'react-native-paper';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
@@ -22,7 +22,6 @@ import SingleEquipment from '../screens/SingleEquipment';
 import SingleMuscle from '../screens/SingleMuscle';
 import Diets from '../screens/Diets';
 import Categories from '../screens/Categories';
-import SingleCategory from '../screens/SingleCategory';
 import Store from '../screens/Store';
 import Products from '../screens/Products';
 import Blog from '../screens/Blog';
@@ -33,18 +32,17 @@ import Favorites from '../screens/Favorites';
 import CustomWorkouts from '../screens/CustomWorkouts';
 import CustomDiets from '../screens/CustomDiets';
 import ColorsApp from '../config/ColorsApp';
+import SingleCategory from '../screens/SingleCategory';
 
 const Stack = createStackNavigator();
 
-export default function StackNavigation(props) {
-  const contextState = React.useContext(LanguageContext);
+export default function StackNavigation(props: any) {
+  const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
   const { theme } = usePreferences();
 
-  const { navigation } = props;
-
-  const navigatorOptions = {
+  const navigatorOptions: StackNavigationOptions = {
     headerStyle: {
       shadowColor: 'transparent',
       elevation: 0,
@@ -64,7 +62,7 @@ export default function StackNavigation(props) {
         iconColor="white"
         style={{ marginLeft: 15 }}
         size={24}
-        onPress={() => navigation.goBack()}
+        onPress={() => props.navigation.goBack()}
       />
     );
   };
@@ -76,7 +74,7 @@ export default function StackNavigation(props) {
         size={24}
         style={{ marginLeft: 15 }}
         iconColor="white"
-        onPress={() => navigation.openDrawer()}
+        onPress={() => props.navigation.openDrawer()}
       />
     );
   };
