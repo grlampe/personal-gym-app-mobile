@@ -1,14 +1,13 @@
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from "react-native";
-import { getToken } from "../context/Authenticate";
 
 const api = axios.create({
   baseURL: 'http://localhost:3001/'
 });
 
 api.interceptors.request.use(async config => {
-  const token = getToken();
+  const token = await AsyncStorage.getItem('storageTokenName');
     if (!!token) {
       if(config.headers){
         config.headers.Authorization = `Bearer ${token}`;
@@ -26,7 +25,7 @@ api.interceptors.request.use(async config => {
 api.interceptors.response.use(async function (response) {
   return response;
 }, async function (error) {
-  const token = await getToken();
+  const token = await AsyncStorage.getItem('storageTokenName');
 
   if (error?.response?.status === 401 && token) {
     await AsyncStorage.removeItem('storageCurrentUser');

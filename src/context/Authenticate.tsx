@@ -32,26 +32,18 @@ export type LoginData = {
   user: User;
 }
 
-export const isAuthenticated = async () => {
-  return await AsyncStorage.getItem('storageTokenName') !== null
-};
-export const getToken = async () => {
-  return await AsyncStorage.getItem('storageTokenName');
-};
-
 export const AuthProvider = (props: AuthProvider) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isLogged, setIsLogged] = useState(false);
 
   React.useEffect(() => {
-    async function fetchStoredUser() {
-        const storedUser = await AsyncStorage.getItem('storageCurrentUser');
-        if (storedUser) {
-            setCurrentUser(JSON.parse(storedUser));
-        }
+    async function fetchIsLogged() {
+      const storedUser = await AsyncStorage.getItem('storageCurrentUser');
+      const storedToken = await AsyncStorage.getItem('storageTokenName');
+      setIsLogged(!!storedUser && !!storedToken)
     }
 
-    fetchStoredUser();
+    fetchIsLogged();
 }, []);
   
   async function signOut() {
@@ -66,13 +58,13 @@ export const AuthProvider = (props: AuthProvider) => {
       await AsyncStorage.setItem('storageTokenName', data.access_token);
       await AsyncStorage.setItem('storageCurrentUser', JSON.stringify(data.user));
       setCurrentUser(data.user);
+      setIsLogged(true);
     }
   }
   
   async function signIn(user: UserSignInForm): Promise<void> {
     await api.post('/login', user).then(async (res) => {
       await setUserData(res.data)
-      setIsLogged(true);
     })
   }
 
