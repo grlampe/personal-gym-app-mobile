@@ -6,114 +6,120 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 const PrimaryColor = ColorsApp.PRIMARY;
 
 const Styles = StyleSheet.create({
-    AuthTitle:{
+    AuthTitle: {
         width: '100%',
         maxHeight: '100%',
         marginBottom: 20,
-        alignSelf: 'center', 
+        alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'center' 
+        textAlign: 'center'
     },
-    AuthLogo:{
+    AuthLogo: {
         width: '100%',
-        height: screenHeight/7,
+        height: screenHeight / 7,
         maxHeight: '100%',
         marginBottom: 50
     },
-    AuthContent:{
+    AuthContent: {
         marginHorizontal: 50
     },
-    AuthInput:{
+    AuthInput: {
         marginBottom: 10,
         backgroundColor: "transparent"
     },
-    AuthButton:{
+    AuthButton: {
         marginTop: 15,
         borderRadius: 6,
         elevation: 0
     },
-    AuthButtonContent:{
+    AuthButtonContent: {
         paddingVertical: 10,
     },
-    AuthButtonLabel:{
+    AuthButtonLabel: {
         letterSpacing: 0,
         fontWeight: 'bold',
     },
-    AuthCheckBoxLabel:{
+    AuthCheckBoxLabel: {
         textTransform: 'capitalize',
         marginLeft: 5,
         letterSpacing: 0,
     },
-    AuthBottomText:{
+    AuthCheckBoxContent: {
+        //backgroundColor: '#fff'
+    },
+    AuthBottomText: {
         fontSize: 16
     },
-    AuthBottomContent:{
+    AuthBottomContent: {
         marginTop: 20,
         alignItems: 'center'
     },
-    ForgotPass:{
+    ForgotPass: {
         fontSize: 16,
         marginVertical: 10,
         alignSelf: 'flex-end',
         marginHorizontal: 4
     },
+    textArea: {
+        //backgroundColor: '#fff'
+    },
     //////////////////////// DRAWER MENU
-    Drawer:{
+    Drawer: {
         flex: 1,
         paddingBottom: 30
     },
-    DrawerHeader:{
-        paddingTop: screenHeight/17,
-        paddingBottom: screenHeight/24,
+    DrawerHeader: {
+        paddingTop: screenHeight / 17,
+        paddingBottom: screenHeight / 24,
         justifyContent: 'center',
-        alignItems: 'center'  
+        alignItems: 'center'
     },
-    DrawerImage:{
+    DrawerImage: {
         width: '100%',
-        height: screenHeight/8,
+        height: screenHeight / 8,
         maxHeight: '100%',
         marginVertical: 10
     },
-    DrawerMenuItem:{
+    DrawerMenuItem: {
         marginHorizontal: 20,
         borderRadius: 6
     },
-    DrawerTitleMenu:{
+    DrawerTitleMenu: {
         fontSize: 16,
-        fontWeight: '600', 
+        fontWeight: '600',
     },
-    DrawerIconMenu:{
+    DrawerIconMenu: {
         fontSize: 30,
         marginRight: 15,
     },
-    DrawerIconRightMenu:{
+    DrawerIconRightMenu: {
         fontSize: 25,
         opacity: 0.3
     },
-    DrawerButton:{
+    DrawerButton: {
         borderRadius: 6,
         marginHorizontal: 15,
         marginVertical: 10,
     },
-    DrawerButtonLabel:{
+    DrawerButtonLabel: {
         textTransform: 'capitalize',
         fontSize: 17,
     },
-    DrawerButtonContent:{
+    DrawerButtonContent: {
         height: 50,
         width: '100%'
     },
-    DrawerTitleHeader:{
+    DrawerTitleHeader: {
         fontWeight: 'bold',
         fontSize: 20,
         marginBottom: 8
     },
-    DrawerSubTitleHeader:{
+    DrawerSubTitleHeader: {
         fontSize: 14,
     },
-    DrawerFooter:{
-        height: screenHeight*0.10,
+    DrawerFooter: {
+        height: screenHeight * 0.10,
         width: '100%',
         position: 'absolute',
         justifyContent: 'center',
@@ -121,114 +127,117 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         bottom: 0
     },
-    DrawerSearchInput:{
+    DrawerSearchInput: {
         marginHorizontal: 15,
         marginVertical: 15
     },
     //////////////////////// HEADING
-    headingTitle:{
+    headingTitle: {
         fontSize: 18,
         fontWeight: 'bold'
     },
-    headingSubTitle:{
+    headingSubTitle: {
         fontSize: 16,
     },
-    headingButton:{
+    headingButton: {
         borderWidth: 2,
         paddingHorizontal: 12,
         paddingVertical: 5,
         borderRadius: 50
     },
-    headingButtonText:{
+    headingButtonText: {
         fontSize: 12,
         fontWeight: 'bold',
-        textTransform: 'uppercase' 
+        textTransform: 'uppercase'
     },
     //////////////////////// BUTTONS
-    Button1:{
+    Button1: {
         alignItems: 'center',
         flexDirection: 'row',
-        height: screenHeight*0.065,
+        height: screenHeight * 0.065,
         width: '100%',
         paddingHorizontal: 55,
         position: 'relative',
         marginTop: 10
     },
-    Button1Text:{
+    Button1Text: {
         fontSize: 16,
     },
-    Button1IconLeft:{
+    Button1IconLeft: {
         color: PrimaryColor,
         position: 'absolute',
         left: 20,
         fontSize: 20,
     },
-    Button1IconRight:{
+    Button1IconRight: {
         color: PrimaryColor,
         position: 'absolute',
         right: 15,
         fontSize: 20
     },
     //////////////////////// PROFILE
-    HeaderProfile:{
+    HeaderProfile: {
         width: '100%',
-        height: screenHeight*0.30,
+        height: screenHeight * 0.30,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20
     },
-    ImageProfile:{
+    ImageProfile: {
         borderRadius: 100,
-        width: screenWidth*0.28,
+        width: screenWidth * 0.28,
         height: 'auto',
-        minHeight: screenWidth*0.28,
-        marginBottom: 20	
+        minHeight: screenWidth * 0.28,
+        marginBottom: 20
     },
-    ButtonProfile:{
+    ButtonProfile: {
         borderRadius: 60,
         width: '40%',
         marginHorizontal: 15,
         marginTop: 20,
     },
-    ButtonLabelProfile:{
+    ButtonLabelProfile: {
         fontWeight: 'bold',
         fontSize: 16,
     },
-    ButtonContentProfile:{
-        height: screenHeight*0.05,
+    ButtonContentProfile: {
+        height: screenHeight * 0.05,
         width: '100%'
     },
-    SubTextProfile:{
+    SubTextProfile: {
         fontSize: 16,
     },
-    SmallTextProfile:{
+    SmallTextProfile: {
         fontSize: 14,
-        marginTop:5,
-        opacity:0.5,
+        marginTop: 5,
+        opacity: 0.5,
     },
-    TextProfile:{
+    TextProfile: {
         fontSize: 18,
         marginRight: 4,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         marginBottom: 5
     },
-    SignButton:{
+    SignButton: {
         marginHorizontal: 15,
         marginVertical: 10,
     },
-    SignButtonContent:{
+    SignButtonLabel: {
+        //color: '#fff',
+    },
+    SignButtonContent: {
         paddingVertical: 10,
         backgroundColor: PrimaryColor,
         width: '100%',
     },
-    SignButtonTextContent:{
+    SignButtonTextContent: {
         marginVertical: 20,
         fontSize: 16
     },
     ////////////////////////////////////////////////
-    card1_gradient:{
+    card1_gradient: {
         position: 'absolute',
-        padding:15,
+        padding: 15,
         left: 0,
         right: 0,
         bottom: 0,
@@ -237,72 +246,70 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
         borderRadius: 8
     },
-    card1_background:{
-        width: screenWidth*0.75,
+    card1_background: {
+        width: screenWidth * 0.75,
         height: screenHeight * 0.23,
         alignItems: 'flex-start',
-        alignSelf: 'center', 
+        alignSelf: 'center',
         justifyContent: 'flex-end',
         padding: 15,
         marginBottom: 20,
         marginLeft: 25,
-        position:'relative'
+        position: 'relative'
     },
-    card1_title:{
+    card1_title: {
         color: "#fff",
         fontWeight: 'bold',
     },
-    card1_subtitle:{
+    card1_subtitle: {
         color: PrimaryColor,
         fontWeight: 'bold',
     },
-    card1_viewicon:{
-        backgroundColor:"rgba(0,0,0,0.3)",
-        borderRadius:100,
+    card1_viewicon: {
+        backgroundColor: "rgba(0,0,0,0.3)",
+        borderRadius: 100,
         padding: 10,
         position: 'absolute',
         right: 10,
         top: 10
     },
-    card1_icon:{
+    card1_icon: {
         color: PrimaryColor,
         fontWeight: 'bold'
     },
-    card2_view:{
-        width: screenWidth*0.23,
+    card2_view: {
+        width: screenWidth * 0.23,
         marginLeft: 15,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
-    card2_content:{
+    card2_content: {
         justifyContent: 'center',
         alignItems: 'center',
     },
-    card2_title:{
+    card2_title: {
         marginTop: 10,
         fontSize: 15,
         textAlign: 'center',
     },
-    card3_title:{
+    card3_title: {
         color: '#FFF',
         fontSize: 15,
-        fontWeight: 'bold' 
+        fontWeight: 'bold'
     },
-    card3_subtitle:{
+    card3_subtitle: {
         color: '#FFF',
         fontSize: 14,
         opacity: 0.8,
         marginVertical: 6
     },
-    card3_category:{
+    card3_category: {
         marginBottom: 6,
         color: PrimaryColor,
         fontWeight: 'bold',
         fontSize: 16,
     },
-    card3_gradient:{
+    card3_gradient: {
         position: 'absolute',
-        padding:15,
+        padding: 15,
         left: 0,
         right: 0,
         bottom: 0,
@@ -311,53 +318,53 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
         borderRadius: 8
     },
-    card3_background:{
-        width: screenWidth*0.9,
+    card3_background: {
+        width: screenWidth * 0.9,
         height: screenHeight * 0.23,
         alignItems: 'flex-start',
-        alignSelf: 'center', 
+        alignSelf: 'center',
         justifyContent: 'flex-end',
         padding: 15,
         marginTop: 5,
         marginBottom: 10
     },
-    card3_viewicon:{
+    card3_viewicon: {
         flexDirection: 'row',
-        backgroundColor:"rgba(0,0,0,0.3)",
-        borderRadius:100,
+        backgroundColor: "rgba(0,0,0,0.3)",
+        borderRadius: 100,
         padding: 10,
         position: 'absolute',
         left: 10,
         top: 10
     },
-    card3_rate:{
+    card3_rate: {
         flexDirection: 'row',
         padding: 10,
         position: 'absolute',
         right: 10,
         top: 7
     },
-    card3_icon:{
+    card3_icon: {
         color: '#fff',
-        marginLeft:8,
-        fontSize:12
+        marginLeft: 8,
+        fontSize: 12
     },
-    card4_title:{
+    card4_title: {
         color: '#FFF',
         fontSize: 15,
-        fontWeight: 'bold' 
+        fontWeight: 'bold'
     },
-    card4_viewicon:{
+    card4_viewicon: {
         flexDirection: 'row',
-        backgroundColor:"rgba(0,0,0,0.3)",
-        borderRadius:100,
+        backgroundColor: "rgba(0,0,0,0.3)",
+        borderRadius: 100,
         padding: 3,
-        paddingHorizontal:10,
-        marginBottom:3
+        paddingHorizontal: 10,
+        marginBottom: 3
     },
-    card4_gradient:{
+    card4_gradient: {
         position: 'absolute',
-        padding:15,
+        padding: 15,
         left: 0,
         right: 0,
         bottom: 0,
@@ -366,27 +373,27 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
         borderRadius: 8
     },
-    card4_background:{
+    card4_background: {
         width: '100%',
         height: screenHeight * 0.15,
         alignItems: 'flex-start',
-        alignSelf: 'center', 
+        alignSelf: 'center',
         justifyContent: 'flex-end',
     },
-    card5_title:{
+    card5_title: {
         color: '#FFF',
         fontSize: 15,
-        fontWeight: 'bold' 
+        fontWeight: 'bold'
     },
-    card5_border:{
-        backgroundColor:PrimaryColor,
-        width:25,
-        height:4,
-        marginVertical:8
+    card5_border: {
+        backgroundColor: PrimaryColor,
+        width: 25,
+        height: 4,
+        marginVertical: 8
     },
-    card5_gradient:{
+    card5_gradient: {
         position: 'absolute',
-        padding:15,
+        padding: 15,
         left: 0,
         right: 0,
         bottom: 0,
@@ -395,97 +402,97 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
         borderRadius: 8
     },
-    card5_background:{
+    card5_background: {
         width: '100%',
         height: screenHeight * 0.19,
         alignItems: 'flex-start',
-        alignSelf: 'center', 
+        alignSelf: 'center',
         justifyContent: 'flex-end',
     },
-    card6_view:{
-        width: screenWidth*0.35,
+    card6_view: {
+        width: screenWidth * 0.35,
         marginLeft: 15,
     },
-    card6_background:{
-        width: screenWidth*0.35,
+    card6_background: {
+        width: screenWidth * 0.35,
         height: screenHeight * 0.13,
         marginLeft: 10,
     },
-    card6_gradient:{
-        width: screenWidth*0.35,
+    card6_gradient: {
+        width: screenWidth * 0.35,
         height: screenHeight * 0.13,
         backgroundColor: hexToRgba(PrimaryColor, '0.5'),
         borderRadius: 8,
         justifyContent: 'flex-end',
         alignItems: 'flex-start'
     },
-    card6_title:{
+    card6_title: {
         fontSize: 15,
-        paddingHorizontal:15,
-        paddingVertical:10,
-        color:'#fff',
-        fontWeight:'bold'
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        color: '#fff',
+        fontWeight: 'bold'
     },
-    itemListView:{
-        width:70,
-        height:70,
-        backgroundColor:PrimaryColor,
+    itemListView: {
+        width: 70,
+        height: 70,
+        backgroundColor: PrimaryColor,
         borderRadius: 100,
-        marginRight:10,
+        marginRight: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        alignSelf: 'center', 
+        alignSelf: 'center',
     },
-    itemListImage:{
-        width:45,
-        height:45,
+    itemListImage: {
+        width: 45,
+        height: 45,
     },
-    itemListView2:{
-        width:90,
-        height:90,
-        backgroundColor:'#fff',
+    itemListView2: {
+        width: 90,
+        height: 90,
+        backgroundColor: '#fff',
         borderRadius: 100,
-        marginRight:10,
+        marginRight: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        alignSelf: 'center', 
+        alignSelf: 'center',
     },
-    itemListImage2:{
-        width:70,
-        height:70,
+    itemListImage2: {
+        width: 70,
+        height: 70,
     },
-    title_categories:{
+    title_categories: {
         color: '#FFF',
         fontSize: 14,
         fontWeight: 'bold'
     },
-    title_categories_background:{
-        width: screenWidth*0.9,
+    title_categories_background: {
+        width: screenWidth * 0.9,
         alignItems: 'center',
         padding: 15,
         borderBottomLeftRadius: 8,
         borderBottomRightRadius: 8
     },
-    title_categories_border:{
+    title_categories_border: {
         height: 2,
         backgroundColor: PrimaryColor,
         width: 50
     },
-    gradient_categories:{
+    gradient_categories: {
         position: 'absolute',
         left: 0,
         right: 0,
         bottom: 0,
-        height: screenHeight*0.21,
-        alignSelf: 'center', 
+        height: screenHeight * 0.21,
+        alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'flex-end',
         borderRadius: 8
     },
-    background_categories:{
-        width: screenWidth*0.9,
-        alignSelf: 'center', 
-        height: screenHeight*0.21,
+    background_categories: {
+        width: screenWidth * 0.9,
+        alignSelf: 'center',
+        height: screenHeight * 0.21,
         alignItems: 'center',
         justifyContent: 'flex-end',
         marginBottom: 10,
@@ -498,293 +505,297 @@ const Styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
     },
-    LoadMore:{
+    LoadMore: {
         borderRadius: 100,
         borderWidth: 1.5,
         borderColor: PrimaryColor,
         width: '93%',
-        height: screenHeight*0.07,
+        height: screenHeight * 0.07,
         marginHorizontal: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignContent: 'center',
         alignItems: 'center',
     },
-    NoMoreItems:{
+    NoMoreItems: {
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 6,
         marginBottom: 60
     },
-    PageLogo:{
+    PageLogo: {
         width: '100%',
-        height: screenHeight/10,
+        height: screenHeight / 10,
         maxHeight: '100%',
         marginBottom: 50,
     },
-    AnimatedScrollScreen:{
+    AnimatedScrollScreen: {
         width: '100%',
         paddingVertical: 45,
         paddingHorizontal: 10,
         flex: 1,
     },
-    ContentScreen:{
+    ContentScreen: {
         width: '100%',
         paddingVertical: 10,
         paddingHorizontal: 10,
         flex: 1,
     },
-    ModalScreen:{
+    ModalScreen: {
         width: '100%',
         paddingHorizontal: 10,
-        flex: 1,	
+        flex: 1,
     },
-    PageScreen:{
+    PageScreen: {
         width: '100%',
         paddingVertical: 30,
         paddingHorizontal: 30,
         flex: 1,
     },
-    StoreScreen:{
+    StoreScreen: {
         paddingVertical: 15,
     },
-    GuestPageScreen:{
+    GuestPageScreen: {
         width: '100%',
         paddingVertical: 30,
         paddingHorizontal: 30,
         flex: 1,
     },
-    RowBackground:{
+    RowBackground: {
         margin: 10,
         borderRadius: 10,
-        justifyContent:'center',
-        alignItems:'center',
-        flexDirection:'column'
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column'
     },
-    RowBorder:{
+    RowBorder: {
         width: 60,
         height: 4,
-        marginTop:10,
+        marginTop: 10,
         backgroundColor: PrimaryColor
     },
-    SearchInput:{
+    SearchInput: {
         marginHorizontal: 15,
         marginVertical: 15,
-        elevation:0,
-        borderWidth:1
+        elevation: 0,
+        borderWidth: 1
     },
-    SearchInputStyle:{
+    SearchInputStyle: {
         fontSize: 17,
     },
-    ExerciseImage:{
-        width: screenWidth*0.85,
-        height: screenHeight*0.25,
-        marginBottom:20,
-        alignSelf:'center',
-        position:'relative'
+    ExerciseImage: {
+        width: screenWidth * 0.85,
+        height: screenHeight * 0.25,
+        marginBottom: 20,
+        alignSelf: 'center',
+        position: 'relative'
     },
-    ExerciseImageView:{
-        width: screenWidth*0.85,
-        height: screenHeight*0.25,
-        justifyContent:'center',
-        alignItems:'center',
-        position:'absolute'
+    ExerciseImageView: {
+        width: screenWidth * 0.85,
+        height: screenHeight * 0.25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute'
     },
-    ExerciseTitle:{
-        fontSize:18,
-        alignSelf:'center',
-        fontWeight:'bold',
+    ExerciseTitle: {
+        fontSize: 18,
+        alignSelf: 'center',
+        fontWeight: 'bold',
     },
-    ExerciseSubTitle:{
-        fontWeight:'bold',
+    ExerciseSubTitle: {
+        fontWeight: 'bold',
         color: PrimaryColor
     },
-    ExerciseCol:{
-        justifyContent:'center',
-        alignItems:'center',
-        marginBottom:10
+    ExerciseCol: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10
     },
-    ExerciseColTitle:{
-        fontSize:18,
-        fontWeight:'bold',
-        marginBottom:5
+    ExerciseColTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 5
     },
-    ExerciseColSubTitle:{
-        fontSize:18,
+    ExerciseColSubTitle: {
+        fontSize: 18,
     },
-    ExerciseColIcon:{
-        color:PrimaryColor,
-        fontSize:32,
-        marginBottom:8
+    ExerciseColIcon: {
+        color: PrimaryColor,
+        fontSize: 32,
+        marginBottom: 8
     },
-    ExerciseAccordionTitle:{
-        fontWeight:'bold',
-        fontSize:16
+    ExerciseAccordion: {},
+    ExerciseAccordionTitle: {
+        fontWeight: 'bold',
+        fontSize: 16
     },
-    ExerciseAccordionView:{
-        marginHorizontal:20,
-        marginTop:15
+    ExerciseAccordionView: {
+        marginHorizontal: 20,
+        marginTop: 15
     },
-    ExerciseInfoCaption:{
-        fontSize:15,
-        marginBottom:15
+    ExerciseInfoCaption: {
+        fontSize: 15,
+        marginBottom: 15
     },
-    HeaderImage:{
+    HeaderImage: {
         width: screenWidth,
-        height: screenHeight*0.40,
+        height: screenHeight * 0.40,
     },
-    HeaderGradient:{
+    HeaderGradient: {
         width: screenWidth,
-        height: screenHeight*0.40,
-        justifyContent:'center',
-        alignItems:'center',
+        height: screenHeight * 0.40,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    HeaderTitle:{
-        fontWeight:'bold',
-        color:'#fff',
-        fontSize:16,
-        marginBottom:8,
-        paddingTop:40
+    HeaderTitle: {
+        fontWeight: 'bold',
+        color: '#fff',
+        fontSize: 16,
+        marginBottom: 8,
+        paddingTop: 40
     },
-    HeaderSubTitle:{
-        fontWeight:'bold',
-        color:PrimaryColor,
-        fontSize:16	
+    HeaderSubTitle: {
+        fontWeight: 'bold',
+        color: PrimaryColor,
+        fontSize: 16
     },
-    Header2Image:{
+    Header2Image: {
         width: screenWidth,
-        height: screenHeight*0.40,
+        height: screenHeight * 0.40,
     },
-    Header2Gradient:{
+    Header2Gradient: {
         width: screenWidth,
-        height: screenHeight*0.40,
-        justifyContent:'flex-end',
-        alignItems:'flex-start',
-        paddingVertical:30,
-        paddingHorizontal:25
+        height: screenHeight * 0.40,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-start',
+        paddingVertical: 30,
+        paddingHorizontal: 25
     },
-    Header2Category:{
-        fontWeight:'bold',
-        color:PrimaryColor,
-        fontSize:16,
+    Header2Category: {
+        fontWeight: 'bold',
+        color: PrimaryColor,
+        fontSize: 16,
     },
-    Header2Title:{
-        fontWeight:'bold',
-        color:'#fff',
-        fontSize:20,
-        marginVertical:8,
+    Header2Title: {
+        fontWeight: 'bold',
+        color: '#fff',
+        fontSize: 20,
+        marginVertical: 8,
     },
-    Header2SubTitle:{
-        color:'rgba(255,255,255,0.8)',
-        fontSize:16	
+    Header2SubTitle: {
+        color: 'rgba(255,255,255,0.8)',
+        fontSize: 16
     },
-    WorkoutGrid:{
-        backgroundColor:PrimaryColor
+    WorkoutGrid: {
+        backgroundColor: PrimaryColor
     },
-    WorkoutGridCol:{
+    WorkoutGridCol: {
         padding: 10,
-        alignItems:'center',
+        alignItems: 'center',
     },
-    WorkoutGridTitle:{
-        fontSize:16,
-        color:'rgba(0,0,0,0.7)',
-        fontWeight:'bold',
+    WorkoutGridTitle: {
+        fontSize: 16,
+        color: 'rgba(0,0,0,0.7)',
+        fontWeight: 'bold',
     },
-    WorkoutGridSubTitle:{
-        fontSize:16,
-        color:'rgba(0,0,0,0.5)',
+    WorkoutGridSubTitle: {
+        fontSize: 16,
+        color: 'rgba(0,0,0,0.5)',
     },
-    DietGrid:{
-        backgroundColor:PrimaryColor
+    DietGrid: {
+        backgroundColor: PrimaryColor
     },
-    DietGridCol:{
+    DietGridCol: {
         padding: 15,
-        alignItems:'center',
+        alignItems: 'center',
     },
-    DietGridTitle:{
-        fontSize:16,
-        marginBottom:5,
-        color:'rgba(0,0,0,0.7)',
-        fontWeight:'bold',
+    DietGridTitle: {
+        fontSize: 16,
+        marginBottom: 5,
+        color: 'rgba(0,0,0,0.7)',
+        fontWeight: 'bold',
     },
-    DietGridSubTitle:{
-        fontSize:16,
-        color:'rgba(0,0,0,0.5)',
+    DietGridSubTitle: {
+        fontSize: 16,
+        color: 'rgba(0,0,0,0.5)',
     },
-    DayList:{
-        paddingVertical:15,
-        marginHorizontal:10,
-        backgroundColor:'rgba(255,255,255,0.1)',
-        flexDirection:'row',
-        marginVertical:5,
-        borderRadius:8,
-        paddingHorizontal:15,
-        position:'relative'
+    DayList: {
+        paddingVertical: 15,
+        marginHorizontal: 10,
+        backgroundColor: 'rgba(255,255,255,0.1)',
+        flexDirection: 'row',
+        marginVertical: 5,
+        borderRadius: 8,
+        paddingHorizontal: 15,
+        position: 'relative'
     },
-    DayListText:{
-        fontSize:15,
+    DayListText: {
+        fontSize: 15,
     },
-    DayListIcon:{
-        color:PrimaryColor,
-        fontSize:22,
-        right:10,
-        top:13,
-        position:'absolute'
+    DayListIcon: {
+        color: PrimaryColor,
+        fontSize: 22,
+        right: 10,
+        top: 13,
+        position: 'absolute'
     },
-    HomeImage:{
+    HomeImage: {
         width: screenWidth,
-        height: screenHeight*0.30,
+        height: screenHeight * 0.30,
     },
-    HomeGradient:{
+    HomeGradient: {
         width: screenWidth,
-        height: screenHeight*0.30,
-        justifyContent:'center',
-        alignItems:'center',
+        height: screenHeight * 0.30,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    HomeLogo:{
+    HomeLogo: {
         width: '100%',
-        height: screenHeight/7.5,
+        height: screenHeight / 7.5,
         maxHeight: '100%',
     },
-    HomeMenu:{
+    HomeMenu: {
         marginVertical: 10
     },
-    HomeIconList:{
+    HomeScreen: {},
+    HomeIconList: {
         marginHorizontal: 20,
         marginBottom: 5
     },
-    HomeLabel:{
-        fontWeight:'bold',
+    HomeLabel: {
+        fontWeight: 'bold',
         marginHorizontal: 10
     },
-    gridView:{
+    HomeIcon: {},
+    HomeIconRight: {},
+    gridView: {
         flexDirection: 'row',
     },
-    gridViewItem:{
+    gridViewItem: {
         flex: 1,
-        width: screenWidth*0.50,
-        margin:5
+        width: screenWidth * 0.50,
+        margin: 5
     },
-    gridView_2:{
+    gridView_2: {
         flexDirection: 'row',
     },
-    gridViewItem_2:{
+    gridViewItem_2: {
         flex: 1,
-        width: screenWidth*0.50,
-        margin:8
+        width: screenWidth * 0.50,
+        margin: 8
     },
-    gridViewTitle_2:{
+    gridViewTitle_2: {
         marginTop: 6,
-        fontSize:15,
+        fontSize: 15,
     },
-    gridViewSubtitle_2:{
+    gridViewSubtitle_2: {
         color: PrimaryColor,
-        fontSize:15,
-        fontWeight:'bold',
+        fontSize: 15,
+        fontWeight: 'bold',
         marginBottom: 6
     },
-    gridViewImage_2:{
+    gridViewImage_2: {
         height: screenHeight * 0.14
     },
 });

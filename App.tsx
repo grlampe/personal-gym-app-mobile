@@ -21,11 +21,6 @@ import GuestNavigation from './src/navigation/GuestNavigation';
 import ConfigApp from './src/config/ConfigApp';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import moment from 'moment';
-import 'moment/locale/es';
-import 'moment/locale/ar';
-import 'moment/locale/de';
-import 'moment/locale/ru';
-import 'moment/locale/fr';
 import OneSignal from 'react-native-onesignal';
 import { AuthContext, AuthProvider } from './src/context/auth.context';
 import ColorsApp from './src/config/ColorsApp';
@@ -97,14 +92,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (
-      language === 'es' ||
-      language === 'ar' 
-    ) {
-      moment.locale(language);
-    } else {
-      moment.locale('en');
-    }
+    moment.locale('en');
   }, [language]);
 
   if (!loaded) {

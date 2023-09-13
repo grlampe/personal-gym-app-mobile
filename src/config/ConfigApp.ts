@@ -11,7 +11,7 @@ type ConfigAppType = {
 };
 
 const ConfigApp: ConfigAppType = {
-    URL: "http://10.0.2.2:3001/",
+    URL: "https://wicombit.com/demo/gofit/",
     DEFAULTLANG: "en",
     THEMEMODE: "light",
     SHOWADS: false,
