@@ -24,6 +24,7 @@ import moment from 'moment';
 import OneSignal from 'react-native-onesignal';
 import { AuthContext, AuthProvider } from './src/context/auth.context';
 import ColorsApp from './src/config/ColorsApp';
+import { ApiProvider } from './src/context/api.context';
 
 OneSignal.setAppId(ConfigApp.ONESIGNAL_APP_ID);
 
@@ -129,9 +130,11 @@ const App: React.FC = () => {
 };
 
 const Root: React.FC = () => (
-  <AuthProvider>
-    <App />
-  </AuthProvider>
+  <ApiProvider>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </ApiProvider>
 );
 
 export default Root;

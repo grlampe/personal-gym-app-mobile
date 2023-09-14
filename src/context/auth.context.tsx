@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { api } from "../services/api.service";
 import { storageCurrentUser, storageTokenName } from "../utils/consts";
+import { useApi } from "../repositories/useRepository";
 
 export const AuthContext = createContext({} as AuthContextData);
 
@@ -9,7 +9,8 @@ export type User = {
   id : string; 
   email : string; 
   name : string;
-  active : boolean;  
+  active: boolean;  
+  photoURL?: string;
 }
 
 type UserSignInForm = {
@@ -34,23 +35,11 @@ export type LoginData = {
 }
 
 export const AuthProvider = (props: AuthProvider) => {
+  const { api } = useApi();
+  let { signOutApi } = useApi();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isLogged, setIsLogged] = useState(false);
 
-  React.useEffect(() => {
-    async function fetchIsLogged() {
-      const storedUser: User = JSON.parse(await AsyncStorage.getItem(storageCurrentUser));
-      const storedToken = await AsyncStorage.getItem(storageTokenName);
-      setIsLogged(!!storedUser && !!storedToken)
-
-      if (!currentUser && !!storedUser) {
-        setCurrentUser(storedUser)
-      }
-    }
-
-    fetchIsLogged();
-}, [currentUser]);
-  
   async function signOut() {
     setCurrentUser(null);
     await AsyncStorage.removeItem(storageCurrentUser);
@@ -58,6 +47,24 @@ export const AuthProvider = (props: AuthProvider) => {
     setIsLogged(false);
   }
 
+  React.useEffect(() => {
+    signOutApi = signOut;
+  }, [signOutApi]);
+
+  async function fetchIsLogged() {
+    const storedUser: User = JSON.parse(await AsyncStorage.getItem(storageCurrentUser));
+    const storedToken = await AsyncStorage.getItem(storageTokenName);
+    setIsLogged(!!storedUser && !!storedToken)
+
+    if (!currentUser && !!storedUser) {
+      setCurrentUser(storedUser)
+    }
+  }
+
+  React.useEffect(() => {
+    fetchIsLogged();
+  }, [currentUser]);
+  
   async function setUserData(data: LoginData) {
     if (data) {
       await AsyncStorage.setItem(storageTokenName, data.access_token);
