@@ -29,6 +29,7 @@ api.interceptors.response.use(async function (response) {
   const token = await AsyncStorage.getItem(storageTokenName);
 
   if (error?.response?.status === 401 && token) {
+    Alert.alert('Usuário Expirado!');
     await AsyncStorage.removeItem(storageCurrentUser);
     await AsyncStorage.removeItem(storageTokenName);
   }

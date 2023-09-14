@@ -47,7 +47,7 @@ export default function Home(props: HomeProps) {
               onPress={() => onChangeScreen("workouts")}
               underlayColor="transparent"
               rippleColor='transparent'
-              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="calendar-month-outline" />}
+              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="dumbbell" />}
               right={(props) => <List.Icon {...props} style={Styles.HomeIconRight} icon={rightIcon} />}
             />
 
@@ -58,7 +58,7 @@ export default function Home(props: HomeProps) {
               onPress={() => onChangeScreen("exercises")}
               underlayColor="transparent"
               rippleColor='transparent'
-              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="dumbbell" />}
+              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="human-male-height" />}
               right={(props) => <List.Icon {...props} style={Styles.HomeIconRight} icon={rightIcon} />}
             />
           </View>

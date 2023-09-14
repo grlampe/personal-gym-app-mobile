@@ -92,7 +92,13 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    moment.locale('en');
+    if (
+      language === 'en'
+    ) {
+      moment.locale(language);
+    } else {
+      moment.locale('br');
+    }
   }, [language]);
 
   if (!loaded) {
