@@ -58,7 +58,7 @@ export default function Home(props: HomeProps) {
               onPress={() => onChangeScreen("exercises")}
               underlayColor="transparent"
               rippleColor='transparent'
-              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="human-male-height" />}
+              left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="tape-measure" />}
               right={(props) => <List.Icon {...props} style={Styles.HomeIconRight} icon={rightIcon} />}
             />
           </View>

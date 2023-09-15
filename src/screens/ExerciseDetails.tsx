@@ -8,9 +8,6 @@ import AppLoading from '../components/InnerLoading';
 import { Text, List } from 'react-native-paper';
 import { Col, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { HTMLStyles } from '../config/HTMLStyles';
-import { HTMLStylesDark } from '../config/HTMLStylesDark';
-import HTMLView from 'react-native-render-html';
 import { WorkoutExercise } from '../repositories/useWorkoutExerciseRepository';
 
 interface ExerciseDetailsProps {
@@ -81,6 +78,12 @@ export default function ExerciseDetails(props: ExerciseDetailsProps) {
                 <Text style={Styles.ExerciseColTitle}>{Strings.ST81}</Text>
                 <Text style={Styles.ExerciseColSubTitle}>{workoutExercise?.restTime}</Text>
               </Col>
+
+              <Col style={Styles.ExerciseCol}>
+                <Icon name="dumbbell" style={Styles.ExerciseColIcon} />
+                <Text style={Styles.ExerciseColTitle}>Peso</Text>
+                <Text style={Styles.ExerciseColSubTitle}>{workoutExercise?.weight}</Text>
+              </Col>
             </Grid>
 
             <View style={{ marginBottom: 10 }}>
@@ -93,11 +96,9 @@ export default function ExerciseDetails(props: ExerciseDetailsProps) {
               </List.Accordion>
               {showInfo ?
                 <View style={Styles.ExerciseAccordionView}>
-                  <HTMLView
-                    source={{ html: workoutExercise?.observation ? workoutExercise?.observation : `<p></p>` }}
-                    contentWidth={width}
-                    tagsStyles={theme === "light" ? HTMLStyles : HTMLStylesDark}
-                  />
+                  <Text>
+                    {workoutExercise?.observation}
+                  </Text>
                 </View>
                 : null
               }
