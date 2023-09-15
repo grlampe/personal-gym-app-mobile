@@ -15,7 +15,7 @@ const headingStyle: TextStyle = {
     ...commonStyle
 }
 
-export const HTMLStyles: Record<string, TextStyle> = {
+export const HTMLStyles: any = {
 
     p: commonFontSize,
 

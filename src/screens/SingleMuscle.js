@@ -4,7 +4,7 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { getExercisesByMuscle } from "../config/DataApp";
-import {map} from 'lodash';
+import { map } from 'lodash';
 import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { List } from 'react-native-paper';
@@ -32,7 +32,7 @@ export default function SingleMuscle(props) {
   
 
   const onClickItem = (id, title) => {
-    navigation.navigate('exercisedetails', {id, title});
+    navigation.navigate('exerciseDetails', {id, title});
   };
 
   const loadMore = () => {

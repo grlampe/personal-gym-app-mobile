@@ -21,7 +21,7 @@ const divStyle: TextStyle = {
     textAlign: I18nManager.isRTL ? "right" : "left"
 }
 
-export const HTMLStylesDark: Record<string, TextStyle> = {
+export const HTMLStylesDark: any = {
     p: commonFontSize,
     a: {
         textDecorationLine: 'underline',

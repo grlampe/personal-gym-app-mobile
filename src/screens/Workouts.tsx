@@ -19,8 +19,8 @@ const Workouts: React.FC<WorkoutsProps> = (props) => {
   const { currentUser } = React.useContext(ApiContext);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-  const onClickItem = (id: string) => {
-    props.navigation.navigate('workoutDetails', { id });
+  const onClickItem = (workout: WorkoutList) => {
+    props.navigation.navigate('workoutDetails', { workout });
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Workouts: React.FC<WorkoutsProps> = (props) => {
           <SafeAreaView>
             <View style={Styles.ContentScreen}>
               {map(workouts, (item: WorkoutList, i: number) => (
-                <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id)}>
+                <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item)}>
                   <ImageBackground source={require('../../assets/workout-card.png')} style={Styles.card3_background} imageStyle={{ borderRadius: 8 }}>
                     <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
                       <Text numberOfLines={2} style={Styles.card3_title}>

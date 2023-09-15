@@ -32,7 +32,7 @@ export default function SingleEquipment(props) {
   
 
   const onClickItem = (id, title) => {
-    navigation.navigate('exercisedetails', {id, title});
+    navigation.navigate('exerciseDetails', {id, title});
   };
 
   const loadMore = () => {
