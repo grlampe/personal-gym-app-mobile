@@ -6,8 +6,9 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { Text } from 'react-native-paper';
-import { AuthContext, User } from '../context/auth.context';
+import { User } from '../context/auth.context';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
+import { ApiContext } from '../context/api.context';
 
 interface ProfileProps {
   navigation: NavigationProp<any>;
@@ -15,7 +16,7 @@ interface ProfileProps {
 }
 
 export default function Profile(props: ProfileProps) {
-  const { signOut, currentUser } = React.useContext(AuthContext);
+  const { signOut, currentUser } = React.useContext(ApiContext);
   const contextState = React.useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;

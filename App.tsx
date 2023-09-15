@@ -22,9 +22,8 @@ import ConfigApp from './src/config/ConfigApp';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import moment from 'moment';
 import OneSignal from 'react-native-onesignal';
-import { AuthContext, AuthProvider } from './src/context/auth.context';
 import ColorsApp from './src/config/ColorsApp';
-import { ApiProvider } from './src/context/api.context';
+import { ApiContext, ApiProvider } from './src/context/api.context';
 
 OneSignal.setAppId(ConfigApp.ONESIGNAL_APP_ID);
 
@@ -45,7 +44,7 @@ interface Preference {
 }
 
 const App: React.FC = () => {
-  const { isLogged } = useContext(AuthContext);
+  const { isLogged } = useContext(ApiContext);
   const [theme, setTheme] = useState<string>(ConfigApp.THEMEMODE);
   const [loaded, setLoaded] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>(ConfigApp.DEFAULTLANG);
@@ -131,9 +130,7 @@ const App: React.FC = () => {
 
 const Root: React.FC = () => (
   <ApiProvider>
-    <AuthProvider>
       <App />
-    </AuthProvider>
   </ApiProvider>
 );
 

@@ -6,9 +6,9 @@ import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AuthContext } from '../context/auth.context';
 import Empty from '../components/Empty';
 import { WorkoutList, useWorkoutRepository } from '../repositories/useWorkoutRepositoty';
+import { ApiContext } from '../context/api.context';
 
 interface WorkoutsProps {
   navigation: any;
@@ -16,11 +16,11 @@ interface WorkoutsProps {
 
 const Workouts: React.FC<WorkoutsProps> = (props) => {
   const { workouts, setWorkouts, searchWorkoutByUserId } = useWorkoutRepository();
-  const { currentUser, signOut } = React.useContext(AuthContext);
+  const { currentUser } = React.useContext(ApiContext);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-  const onClickItem = (id: string, description: string) => {
-    props.navigation.navigate('workoutDetails', { id, description });
+  const onClickItem = (id: string) => {
+    props.navigation.navigate('workoutDetails', { id });
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Workouts: React.FC<WorkoutsProps> = (props) => {
           <SafeAreaView>
             <View style={Styles.ContentScreen}>
               {map(workouts, (item: WorkoutList, i: number) => (
-                <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.description)}>
+                <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id)}>
                   <ImageBackground source={require('../../assets/workout-card.png')} style={Styles.card3_background} imageStyle={{ borderRadius: 8 }}>
                     <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
                       <Text numberOfLines={2} style={Styles.card3_title}>

@@ -10,14 +10,14 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import usePreferences from '../hooks/usePreferences';
-import { AuthContext } from '../context/auth.context';
+import { ApiContext } from '../context/api.context';
 
 interface Props {
   navigation: any;
 }
 
 export default function Login(_: Props) {
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useContext(ApiContext);
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;

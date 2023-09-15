@@ -4,7 +4,7 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { getWorkoutsByLevel } from "../config/DataApp";
-import {map} from 'lodash';
+import { map } from 'lodash';
 import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text, IconButton } from 'react-native-paper';
@@ -34,26 +34,26 @@ export default function SingleLevel(props) {
   };
 
   const onClickItem = (id, title) => {
-    navigation.navigate('workoutdetails', {id, title});
+    navigation.navigate('workoutDetails', { id, title });
   };
 
   const buttonSearch = () => {
     return (
-      <IconButton icon="magnify" size={24} style={{marginLeft:15}} iconColor="white" onPress={() => onChangeScreen('searchworkout')}/>
-      )
+      <IconButton icon="magnify" size={24} style={{ marginLeft: 15 }} iconColor="white" onPress={() => onChangeScreen('searchworkout')} />
+    )
   };
 
   const loadMore = () => {
 
     setLoading(true);
-    setPage(page+1);
+    setPage(page + 1);
 
-    getWorkoutsByLevel(id, page+1).then((response) => {
+    getWorkoutsByLevel(id, page + 1).then((response) => {
 
       if (!items) {
         setItems(response);
         setLoading(false);
-      }else{
+      } else {
         setItems([...items, ...response]);
         setLoading(false);
       }
@@ -72,12 +72,12 @@ export default function SingleLevel(props) {
 
     return (
       <LoadMoreButton
-      Indicator={loading}
-      showButton={showButton}
-      Items={items}
-      Num={5}
-      Click={() => loadMore()}/>
-      )
+        Indicator={loading}
+        showButton={showButton}
+        Items={items}
+        Num={5}
+        Click={() => loadMore()} />
+    )
   }
 
   useEffect(() => {
@@ -104,50 +104,41 @@ export default function SingleLevel(props) {
    
          );
    
-      }else{
+      } else {
 
- return (
+        return (
+          <ScrollView
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+          >
+            <SafeAreaView>
+              <View style={Styles.ContentScreen}>
 
-  <ScrollView
-  showsHorizontalScrollIndicator={false}
-  showsVerticalScrollIndicator={false}
->
-    
-<SafeAreaView>
+                {map(items, (item, i) => (
+                  <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
+                    <ImageBackground source={{ uri: item.image }} style={Styles.card3_background} imageStyle={{ borderRadius: 8 }}>
+                      <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
 
-    <View style={Styles.ContentScreen}>
+                        <View style={Styles.card3_viewicon}>
+                          {item.rate ? <LevelRate rate={item.rate} /> : null}
+                        </View>
 
-    {map(items, (item, i) => (
-    
-    <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
-    <ImageBackground source={{uri: item.image}} style={Styles.card3_background} imageStyle={{borderRadius: 8}}>
-      <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
+                        <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
+                        <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration}</Text>
 
-      <View style={Styles.card3_viewicon}>
-        {item.rate ? <LevelRate rate={item.rate}/> : null}
-      </View>
-      
-        <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
-        <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration}</Text>
+                      </LinearGradient>
+                    </ImageBackground>
+                  </TouchableOpacity>
+                ))}
 
-      </LinearGradient>
-    </ImageBackground>
-    </TouchableOpacity>
+                {renderButton()}
 
-          ))}
+                <NoContentFound data={items} />
 
-    {renderButton()}
+              </View>
+            </SafeAreaView>
+          </ScrollView>
+        );
 
-    <NoContentFound data={items}/>
-
-    </View>
-    </SafeAreaView>
-    </ScrollView>
-
-      );
-
+      }
 }
-
-}
-
-

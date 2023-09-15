@@ -16,7 +16,7 @@ interface UseWorkoutRepositoryReturn {
 
 export function useWorkoutRepository(): UseWorkoutRepositoryReturn {
   const { api } = useApi();
-  const [workouts, setWorkouts] = useState<WorkoutList[]>();
+  const [workouts, setWorkouts] = useState<WorkoutList[]>([]);
 
   async function searchWorkoutByUserId(id: string) {   
     const result = await api.get(`workout/user/${id}`)
@@ -24,7 +24,7 @@ export function useWorkoutRepository(): UseWorkoutRepositoryReturn {
   }
 
   return {
-    workouts,
+    workouts: workouts ?? [],
     setWorkouts,
     searchWorkoutByUserId,
   }

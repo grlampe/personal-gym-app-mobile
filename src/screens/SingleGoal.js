@@ -4,7 +4,7 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { getWorkoutsByGoal } from "../config/DataApp";
-import {map} from 'lodash';
+import { map } from 'lodash';
 import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text, IconButton } from 'react-native-paper';
@@ -34,26 +34,24 @@ export default function SingleGoal(props) {
   };
 
   const onClickItem = (id, title) => {
-    navigation.navigate('workoutdetails', {id, title});
+    navigation.navigate('workoutDetails', {id, title});
   };
 
   const buttonSearch = () => {
     return (
       <IconButton icon="magnify" size={24} style={{marginLeft:15}} iconColor="white" onPress={() => onChangeScreen('searchworkout')}/>
-      )
+    )
   };
 
   const loadMore = () => {
-
     setLoading(true);
     setPage(page+1);
 
     getWorkoutsByGoal(id, page+1).then((response) => {
-
       if (!items) {
         setItems(response);
         setLoading(false);
-      }else{
+      } else {
         setItems([...items, ...response]);
         setLoading(false);
       }
@@ -63,91 +61,64 @@ export default function SingleGoal(props) {
       }
 
       setIsLoaded(true);
-
     });
-
   };
 
   const renderButton = () => {
-
     return (
       <LoadMoreButton
-      Indicator={loading}
-      showButton={showButton}
-      Items={items}
-      Num={5}
-      Click={() => loadMore()}/>
-      )
+        Indicator={loading}
+        showButton={showButton}
+        Items={items}
+        Num={5}
+        Click={() => loadMore()}/>
+    )
   }
 
   useEffect(() => {
-  
     props.navigation.setOptions({
       title: title,
-        headerRight: () => buttonSearch()
+      headerRight: () => buttonSearch()
     });
-  
   }, []);
 
   useEffect(() => {
     getWorkoutsByGoal(id).then((response) => {
-        setItems(response);
-        setIsLoaded(true);
+      setItems(response);
+      setIsLoaded(true);
     });
   }, []);
 
   if (!isLoaded) {
-
     return (
-   
-        <AppLoading/>
-   
-         );
-   
-      }else{
-
- return (
-
-  <ScrollView
-  showsHorizontalScrollIndicator={false}
-  showsVerticalScrollIndicator={false}
->
-    
-<SafeAreaView>
-
-    <View style={Styles.ContentScreen}>
-
-    {map(items, (item, i) => (
-    
-    <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
-    <ImageBackground source={{uri: item.image}} style={Styles.card3_background} imageStyle={{borderRadius: 8}}>
-      <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
-
-      <View style={Styles.card3_viewicon}>
-        {item.rate ? <LevelRate rate={item.rate}/> : null}
-      </View>
-      
-        <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
-        <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration}</Text>
-
-      </LinearGradient>
-    </ImageBackground>
-    </TouchableOpacity>
-
-          ))}
-
-    {renderButton()}
-
-    <NoContentFound data={items}/>
-
-    </View>
-    </SafeAreaView>
-    </ScrollView>
-
-      );
-
+      <AppLoading/>
+    );
+  } else {
+    return (
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <SafeAreaView>
+          <View style={Styles.ContentScreen}>
+            {map(items, (item, i) => (
+              <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
+                <ImageBackground source={{uri: item.image}} style={Styles.card3_background} imageStyle={{borderRadius: 8}}>
+                  <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
+                    <View style={Styles.card3_viewicon}>
+                      {item.rate ? <LevelRate rate={item.rate}/> : null}
+                    </View>
+                    <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
+                    <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration}</Text>
+                  </LinearGradient>
+                </ImageBackground>
+              </TouchableOpacity>
+            ))}
+            {renderButton()}
+            <NoContentFound data={items}/>
+          </View>
+        </SafeAreaView>
+      </ScrollView>
+    );
+  }
 }
-
-}
-
-

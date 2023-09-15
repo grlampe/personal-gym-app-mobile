@@ -5,7 +5,7 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { getWorkoutByUser } from "../config/DataApp";
-import {map} from 'lodash';
+import { map } from 'lodash';
 import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text, IconButton } from 'react-native-paper';
@@ -34,13 +34,13 @@ export default function CustomWorkouts(props) {
   };
 
   const onClickItem = (id, title) => {
-    props.navigation.navigate('workoutdetails', {id, title});
+    props.navigation.navigate('workoutDetails', {id, title});
   };
 
   const buttonSearch = () => {
     return (
       <IconButton icon="magnify" size={24} style={{marginLeft:15}} onPress={() => onChangeScreen('searchworkout')}/>
-      )
+    )
   };
 
   const loadMore = () => {
@@ -72,73 +72,63 @@ export default function CustomWorkouts(props) {
 
     return (
       <LoadMoreButton
-      Indicator={loading}
-      showButton={showButton}
-      Items={items}
-      Num={5}
-      Click={() => loadMore()}/>
-      )
+        Indicator={loading}
+        showButton={showButton}
+        Items={items}
+        Num={5}
+        Click={() => loadMore()}/>
+    )
   }
 
   useEffect(() => {
     getWorkoutByUser(auth.currentUser.uid).then((response) => {
-        setItems(response);
-        setIsLoaded(true);
+      setItems(response);
+      setIsLoaded(true);
     });
   }, []);
 
   if (!isLoaded) {
 
     return (
-   
-        <AppLoading/>
-   
-         );
-   
-      }else{
+      <AppLoading/>
+    );
 
- return (
+  } else {
 
-  <ScrollView
-  showsHorizontalScrollIndicator={false}
-  showsVerticalScrollIndicator={false}
->
-    
-<SafeAreaView>
+    return (
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <SafeAreaView>
+          <View style={Styles.ContentScreen}>
 
-    <View style={Styles.ContentScreen}>
+            {map(items, (item, i) => (
+              <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
+                <ImageBackground source={{uri: item.image}} style={Styles.card3_background} imageStyle={{borderRadius: 8}}>
+                  <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
 
-    {map(items, (item, i) => (
-    
-    <TouchableOpacity key={i} activeOpacity={1} onPress={() => onClickItem(item.id, item.title)} activeScale={0.98}>
-    <ImageBackground source={{uri: item.image}} style={Styles.card3_background} imageStyle={{borderRadius: 8}}>
-      <LinearGradient colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.7)']} style={Styles.card3_gradient}>
+                    <View style={Styles.card3_viewicon}>
+                      {item.rate ? <LevelRate rate={item.rate}/> : null}
+                    </View>
 
-      <View style={Styles.card3_viewicon}>
-        {item.rate ? <LevelRate rate={item.rate}/> : null}
-      </View>
-      
-        <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
-        <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration +'  ·  '+ item.level}</Text>
+                    <Text numberOfLines={2} style={Styles.card3_title}>{item.title}</Text>
+                    <Text numberOfLines={2} style={Styles.card3_subtitle}>{item.duration +'  ·  '+ item.level}</Text>
 
-      </LinearGradient>
-    </ImageBackground>
-    </TouchableOpacity>
+                  </LinearGradient>
+                </ImageBackground>
+              </TouchableOpacity>
+            ))}
 
-          ))}
+            {renderButton()}
 
-    {renderButton()}
+            <NoContentFound data={items}/>
 
-    <NoContentFound data={items}/>
+          </View>
+        </SafeAreaView>
+      </ScrollView>
+    );
 
-    </View>
-    </SafeAreaView>
-    </ScrollView>
-
-      );
+  }
 
 }
-
-}
-
-
