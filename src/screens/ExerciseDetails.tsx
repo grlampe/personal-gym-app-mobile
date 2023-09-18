@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, SafeAreaView, ImageBackground, useWindowDimensions } from 'react-native';
+import { ScrollView, View, SafeAreaView, ImageBackground } from 'react-native';
 import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
-import usePreferences from '../hooks/usePreferences';
 import AppLoading from '../components/InnerLoading';
 import { Text, List } from 'react-native-paper';
 import { Col, Grid } from 'react-native-easy-grid';
@@ -20,12 +19,10 @@ interface ExerciseDetailsProps {
 }
 
 export default function ExerciseDetails(props: ExerciseDetailsProps) {
-  const { width } = useWindowDimensions();
   const { route } = props;
   const { workoutExercise } = route.params;
-  const { theme } = usePreferences();
 
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(!!workoutExercise?.observation);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const contextState = React.useContext(LanguageContext);

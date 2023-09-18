@@ -28,7 +28,7 @@ const Workouts: React.FC<WorkoutsProps> = (props) => {
       setWorkouts(response);
       setIsLoaded(true);
     })
-  }, [workouts]);
+  }, []);
 
   if (!isLoaded) {
     return <AppLoading />;

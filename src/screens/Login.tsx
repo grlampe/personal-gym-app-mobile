@@ -30,7 +30,11 @@ export default function Login(_: Props) {
   const login = async () => {
     setLoading(true);
     if (username && password) {
-      await signIn({ username, password });
+      try {
+        await signIn({ username, password });
+      } catch (error) {
+        setLoading(false);
+      }    
     } else {
       setLoading(false);
       Alert.alert(Strings.ST33);
