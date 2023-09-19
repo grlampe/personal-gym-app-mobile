@@ -5,7 +5,7 @@ import LanguageContext from '../languages/LanguageContext';
 import { map, size } from 'lodash';
 import AppLoading from '../components/InnerLoading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { List, Text, FAB } from 'react-native-paper';
+import { List, Text } from 'react-native-paper';
 import ColorsApp from '../config/ColorsApp';
 import RestDay from '../components/RestDay';
 import { WorkoutExercise, useWorkoutExerciseRepository } from '../repositories/useWorkoutExerciseRepository';
@@ -34,7 +34,7 @@ export default function WorkoutExerciseList(props: WorkoutExerciseListProps) {
   const rightIcon = I18nManager.isRTL ? "chevron-left" : "chevron-right";
 
   const onClickItem = (workoutExercise: WorkoutExercise) => {
-    navigation.navigate('exerciseDetails', { workoutExercise });
+    navigation.navigate('exerciseDetails', { workoutExerciseParam: workoutExercise });
   };
 
   const onClickStart = (id: string) => {
@@ -92,14 +92,14 @@ export default function WorkoutExerciseList(props: WorkoutExerciseListProps) {
             </SafeAreaView>
           </ScrollView>
 
-          <View>
+          {/* <View>
             <FAB
               style={styles.fabStyle}
               label={Strings.ST122}
               icon="play"
               onPress={() => onClickStart(workoutCategoryId)}
             />
-          </View>
+          </View> */}
 
         </View>
       );

@@ -25,6 +25,7 @@ interface UseWorkoutExerciseRepositoryReturn {
   workoutExercise: WorkoutExercise[];
   setWorkoutExercise: Dispatch<SetStateAction<WorkoutExercise[]>>;
   searchWorkoutOnExerciseByWorkoutCategoryId: (workoutCategoryId: string) => Promise<WorkoutExercise[]>;
+  updateWorkoutOnExercise: (workoutExercise: WorkoutExercise[]) => Promise<void>
 }
 
 export function useWorkoutExerciseRepository(): UseWorkoutExerciseRepositoryReturn {
@@ -36,9 +37,18 @@ export function useWorkoutExerciseRepository(): UseWorkoutExerciseRepositoryRetu
     return result.data as WorkoutExercise[];
   }
 
+  async function updateWorkoutOnExercise(workoutExercise: WorkoutExercise[]) {   
+    workoutExercise.forEach((item) => {
+      delete item.exercise;
+    });
+    
+    await api.put('workoutOnExercise', workoutExercise)
+  }
+
   return {
     workoutExercise: workoutExercise ?? [],
     setWorkoutExercise,
     searchWorkoutOnExerciseByWorkoutCategoryId,
+    updateWorkoutOnExercise,
   }
 }
