@@ -6,9 +6,8 @@ import Styles from '../config/Styles';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
 import { Text } from 'react-native-paper';
-import { User } from '../context/auth.context';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
-import { ApiContext } from '../context/api.context';
+import { ApiContext, User } from '../context/api.context';
 
 interface ProfileProps {
   navigation: NavigationProp<any>;
@@ -49,7 +48,7 @@ export default function Profile(props: ProfileProps) {
             <Text style={Styles.SmallTextProfile}>{user?.email}</Text>
           </View>
           <View style={{ marginHorizontal: 30, marginBottom: 40 }}>
-            <CustomButton Icon="dumbbell" Label={Strings.ST50} Click={() => onChangeScreen("customworkouts")} />
+            <CustomButton Icon="dumbbell" Label={Strings.ST50} Click={() => onChangeScreen("workouts")} />
             <CustomButton Icon="bookmark-outline" Label={Strings.ST110} Click={() => onChangeScreen("about")} />
             <CustomButton Icon="file-document-outline" Label={Strings.ST8} Click={() => onChangeScreen("terms")} />
             <CustomButton Icon="logout" Label={Strings.ST9} Click={handleSignOut} />

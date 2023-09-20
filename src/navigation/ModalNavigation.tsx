@@ -7,14 +7,9 @@ import LanguageContext from '../languages/LanguageContext';
 import usePreferences from '../hooks/usePreferences';
 import ExerciseDetails from '../screens/ExerciseDetails';
 import StackNavigation from './StackNavigation';
-import Player from '../screens/Player';
 import WorkoutDetails from '../screens/WorkoutDetails';
-import DietDetails from '../screens/DietDetails';
-import ProductDetails from '../screens/ProductDetails';
-import PostDetails from '../screens/PostDetails';
-import Timer from '../screens/Timer';
-import Completed from '../screens/Completed';
 import WorkoutExerciseList from '../screens/WorkoutExerciseList';
+import BodyMeasurementDetails from '../screens/BodyMeasurementDetails';
 
 const RootStack = createStackNavigator();
 
@@ -41,13 +36,8 @@ export default function ModalNavigation(props: any) {
       <RootStack.Screen name="Main" component={StackNavigation} options={{ headerShown: false }} />
       <RootStack.Screen name="exerciseDetails" component={ExerciseDetails} options={{ title: Strings.ST80, headerLeft: () => <IconButton icon="window-close" style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
       <RootStack.Screen name="workoutDetails" component={WorkoutDetails} options={{ headerTransparent: true, title: null, headerLeft: () => <IconButton icon="window-close" iconColor="#fff" style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
-      <RootStack.Screen name="dietdetails" component={DietDetails} options={{ headerTransparent: true, title: null, headerLeft: () => <IconButton icon="window-close" iconColor="#fff" style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
-      <RootStack.Screen name="productdetails" component={ProductDetails} options={{ headerTransparent: true, title: null, headerLeft: () => <IconButton icon="window-close" iconColor="#fff" style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
-      <RootStack.Screen name="postdetails" component={PostDetails} options={{ headerTransparent: true, title: null, headerLeft: () => <IconButton icon="window-close" iconColor="#fff" style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
-      <RootStack.Screen name="player" component={Player} options={{ headerTransparent: true, title: null }} />
-      <RootStack.Screen name="timer" component={Timer} options={{ headerTransparent: true, title: null, headerLeft: null }} />
       <RootStack.Screen name="workoutExerciseList" component={WorkoutExerciseList} options={{ title: null, headerLeft: () => <IconButton icon={I18nManager.isRTL ? "arrow-right" : "arrow-left"} style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
-      <RootStack.Screen name="completed" component={Completed} options={{ headerTransparent: true, title: null, headerLeft: null }} />
+      <RootStack.Screen name="bodyMeasurementDetails" component={BodyMeasurementDetails} options={{ title: null, headerLeft: () => <IconButton icon={I18nManager.isRTL ? "arrow-right" : "arrow-left"} style={{ marginLeft: 15 }} size={24} onPress={() => props.navigation.goBack()} /> }} />
     </RootStack.Navigator>
   );
 }

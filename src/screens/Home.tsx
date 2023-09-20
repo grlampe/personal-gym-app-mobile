@@ -55,7 +55,7 @@ export default function Home(props: HomeProps) {
               title={Strings.ST21}
               titleStyle={Styles.HomeLabel}
               style={Styles.HomeIconList}
-              onPress={() => onChangeScreen("exercises")}
+              onPress={() => onChangeScreen("bodyMeasurement")}
               underlayColor="transparent"
               rippleColor='transparent'
               left={(props) => <Icon {...props} style={Styles.HomeIcon} size={sizeIcon} color={ColorsApp.PRIMARY} name="tape-measure" />}

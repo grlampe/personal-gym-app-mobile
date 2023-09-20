@@ -24,10 +24,12 @@ const Workouts: React.FC<WorkoutsProps> = (props) => {
   };
 
   useEffect(() => {
-    searchWorkoutByUserId(currentUser.id).then((response: WorkoutList[]) => {
-      setWorkouts(response);
-      setIsLoaded(true);
-    })
+    if (!!currentUser?.id) {
+      searchWorkoutByUserId(currentUser?.id).then((response: WorkoutList[]) => {
+        setWorkouts(response);
+        setIsLoaded(true);
+      })
+    }
   }, []);
 
   if (!isLoaded) {

@@ -8,31 +8,10 @@ import Settings from '../screens/Settings';
 import About from '../screens/About';
 import Terms from '../screens/Terms';
 import Workouts from '../screens/Workouts';
-import Goals from '../screens/Goals';
 import Languages from '../languages';
 import LanguageContext from '../languages/LanguageContext';
-import Levels from '../screens/Levels';
-import SingleGoal from '../screens/SingleGoal';
-import SingleLevel from '../screens/SingleLevel';
-import SearchWorkout from '../screens/SearchWorkout';
-import Exercises from '../screens/Exercises';
-import usePreferences from '../hooks/usePreferences';
-import Equipments from '../screens/Equipments';
-import SingleEquipment from '../screens/SingleEquipment';
-import SingleMuscle from '../screens/SingleMuscle';
-import Diets from '../screens/Diets';
-import Categories from '../screens/Categories';
-import Store from '../screens/Store';
-import Products from '../screens/Products';
-import Blog from '../screens/Blog';
-import Posts from '../screens/Posts';
-import SingleType from '../screens/SingleType';
-import SingleTag from '../screens/SingleTag';
-import Favorites from '../screens/Favorites';
-import CustomWorkouts from '../screens/CustomWorkouts';
-import CustomDiets from '../screens/CustomDiets';
 import ColorsApp from '../config/ColorsApp';
-import SingleCategory from '../screens/SingleCategory';
+import BodyMeasurement from '../screens/BodyMeasurement';
 
 const Stack = createStackNavigator();
 
@@ -40,7 +19,6 @@ export default function StackNavigation(props: any) {
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
-  const { theme } = usePreferences();
 
   const navigatorOptions: StackNavigationOptions = {
     headerStyle: {
@@ -112,109 +90,9 @@ export default function StackNavigation(props: any) {
         options={{ title: Strings.ST5, headerLeft: () => buttonBack() }}
       />
       <Stack.Screen
-        name="exercises"
-        component={Exercises}
+        name="bodyMeasurement"
+        component={BodyMeasurement}
         options={{ title: Strings.ST21, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="equipments"
-        component={Equipments}
-        options={{ title: Strings.ST56, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="diets"
-        component={Diets}
-        options={{ title: Strings.ST27, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="goals"
-        component={Goals}
-        options={{ title: Strings.ST52, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="levels"
-        component={Levels}
-        options={{ title: Strings.ST53, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="categories"
-        component={Categories}
-        options={{ title: Strings.ST28, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="store"
-        component={Store}
-        options={{ title: Strings.ST45, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="products"
-        component={Products}
-        options={{ title: Strings.ST45, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="blog"
-        component={Blog}
-        options={{ title: Strings.ST29, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="posts"
-        component={Posts}
-        options={{ title: Strings.ST29, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singlegoal"
-        component={SingleGoal}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singlelevel"
-        component={SingleLevel}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singleequipment"
-        component={SingleEquipment}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singlemuscle"
-        component={SingleMuscle}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singlecategory"
-        component={SingleCategory}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singletype"
-        component={SingleType}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="singletag"
-        component={SingleTag}
-        options={{ title: null, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="searchworkout"
-        component={SearchWorkout}
-        options={{ title: Strings.ST3, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="favorites"
-        component={Favorites}
-        options={{ title: Strings.ST4, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="customworkouts"
-        component={CustomWorkouts}
-        options={{ title: Strings.ST50, headerLeft: () => buttonBack() }}
-      />
-      <Stack.Screen
-        name="customdiets"
-        component={CustomDiets}
-        options={{ title: Strings.ST51, headerLeft: () => buttonBack() }}
       />
     </Stack.Navigator>
   );

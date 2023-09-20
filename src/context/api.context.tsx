@@ -53,45 +53,33 @@ export const ApiProvider = (props: ApiProvider) => {
   
   ////// API
 
-  const enhanceConfigWithToken = async (config) => {
-    const token = await getToken();
-
-    if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
+  api.interceptors.request.use(async config => {
+    const token = await AsyncStorage.getItem(storageTokenName);
+    if (!!token) {
+      if (config.headers) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
 
     return config;
-};
+  });
 
-  const getToken = () => AsyncStorage.getItem(storageTokenName);
+  api.interceptors.response.use(async (response) => response,
+    async (error) => {
+      const token = await AsyncStorage.getItem(storageTokenName);
 
-  api.interceptors.request.use(enhanceConfigWithToken);
-
-  const handleResponse = response => response;
-
-  const handleError = async error => {
-      if (error?.response?.status === 401 && await isTokenPresent()) {
-          Alert.alert('Usuário Expirado!');
-          await signOut();
+      if (error?.response?.status === 401 && token) {
+        Alert.alert('Usuário Expirado!');
+        return await signOut();
+      } else if (error?.response?.data?.message) {
+        Alert.alert(error.response.data.message);
       } else {
-        showAlertFromError(error)
+        Alert.alert(error.message);
       }
 
       return Promise.reject(error);
-  };
-
-  const isTokenPresent = async () => {
-      const token = await AsyncStorage.getItem(storageTokenName);
-      return Boolean(token);
-  };
-
-  const showAlertFromError = error => {
-      const errorMessage = error?.response?.data?.message || error.message;
-      Alert.alert(errorMessage);
-  };
-
-  api.interceptors.response.use(handleResponse, handleError);
-
+    }
+  );
 
   ////// LOGIN
 
