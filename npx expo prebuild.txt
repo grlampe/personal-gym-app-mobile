@@ -1,0 +1,5 @@
+npx expo prebuild
+
+npx eas-cli build --profile development --platform ios
+
+Debug: Toggle Auto Attach

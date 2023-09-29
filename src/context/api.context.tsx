@@ -36,8 +36,15 @@ type ApiProvider = {
   children: ReactNode;
 };
 
+// const api = axios.create({
+//   baseURL: 'http://localhost:3001/',
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
+
 const api = axios.create({
-  baseURL: 'http://localhost:3001/',
+  baseURL: 'http://10.0.2.2:3001/',
   headers: {
     "Content-Type": "application/json",
   },
