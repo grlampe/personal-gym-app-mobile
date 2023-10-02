@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storageCurrentUser, storageTokenName } from "../utils/consts";
 import React, { ReactNode, createContext, useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 
 export const ApiContext = createContext({} as ApiContext);
 
@@ -36,15 +36,8 @@ type ApiProvider = {
   children: ReactNode;
 };
 
-// const api = axios.create({
-//   baseURL: 'http://localhost:3001/',
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
-
 const api = axios.create({
-  baseURL: 'http://10.0.2.2:3001/',
+  baseURL: Platform.OS === 'android' ? 'http://10.0.2.2:3001/' : 'http://localhost:3001/',
   headers: {
     "Content-Type": "application/json",
   },
