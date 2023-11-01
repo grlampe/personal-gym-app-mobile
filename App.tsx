@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { LogBox, StatusBar } from 'react-native';
-import './src/config/ConfigFirebase';
 import Loading from './src/components/AppLoading';
 import LanguageContext from './src/languages/LanguageContext';
 import Preferences from './src/context/pref.context';
@@ -92,8 +91,10 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    console.log(language);
     if (
-      language === 'en'
+      language === 'en' ||
+      language === 'br'
     ) {
       moment.locale(language);
     } else {

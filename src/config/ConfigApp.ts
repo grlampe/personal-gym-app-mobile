@@ -11,8 +11,8 @@ type ConfigAppType = {
 };
 
 const ConfigApp: ConfigAppType = {
-    URL: "https://wicombit.com/demo/gofit/",
-    DEFAULTLANG: "en",
+    URL: '',
+    DEFAULTLANG: "br",
     THEMEMODE: "light",
     SHOWADS: false,
     ANDROID_BANNER_ID: "ca-app-pub-3940256099942544/6300978111",
