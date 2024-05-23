@@ -9,7 +9,8 @@
       "channel": "development",
       "ios": {
         "simulator": true
-      }
+      },
+      "cocoapods": "1.12.0"
     },
     "preview": {
       "distribution": "internal",
